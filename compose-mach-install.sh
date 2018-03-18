@@ -5,9 +5,6 @@
 # for ubuntu 
 #
 
-COMPOSE_VER=$(docker-compose version)
-MACHINE_VER=$(docker-machine version)
-
 # docker machine install 
 curl -L https://github.com/docker/machine/releases/download/v0.14.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && \
 sudo install /tmp/docker-machine /usr/local/bin/docker-machine
