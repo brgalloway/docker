@@ -3,8 +3,6 @@
 Initial install for Ubuntu and CentOS and other docker based files
 
 
-cker Cheatsheet
-
 ### Starting containers
 when starting the container it will look locally and if cannot
 the container locally it will attempt to the find the container
