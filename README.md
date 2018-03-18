@@ -2,11 +2,10 @@
 
 Initial install for Ubuntu and CentOS and other docker based files
 
-
 ### Starting containers
-when starting the container it will look locally and if cannot
-the container locally it will attempt to the find the container
-on docker hub and download and store it in the image cache.
+when starting the container it will look locally and if it cannot
+find the container locally it will attempt to the find the container
+on docker hub, download, and store it in the image cache.
 
 #### 
 ```
