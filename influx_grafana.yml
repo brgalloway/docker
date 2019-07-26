@@ -1,0 +1,63 @@
+version: "3.7"
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: always
+    hostname: grafana
+    ports:
+      - 3000:3000
+    networks:
+      monitoring:
+        ipv4_address: 172.16.0.2
+    volumes:
+      - grafana-volume:/var/lib/grafana
+      - grafana-config:/etc/grafana
+
+  influxdb:
+    image: influxdb
+    container_name: influxdb
+    restart: always
+    hostname: influxdb
+    ports:
+      - 8086:8086
+    networks:
+      monitoring:
+         ipv4_address: 172.16.0.3
+    volumes:
+      - influxdb-volume:/var/lib/influxdb
+    environment:
+      - INFLUXDB_DB=icingadb
+
+  graphite:
+    image: mrlesmithjr/graphite
+    container_name: graphite
+    restart: always
+    hostname: graphite
+    ports:
+      - 81:80
+      - 2003:2003
+      - 2003:2003/udp
+      - 2004:2004
+      - 7002:7002
+    networks:
+      monitoring:
+        ipv4_address: 172.16.0.4
+    volumes:
+      - graphite-volume:/var/lib/graphite/whisper
+
+networks:
+  monitoring:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/26
+volumes:
+  grafana-volume:
+    external: true
+  influxdb-volume:
+    external: true
+  grafana-config:
+    external: true
+  graphite-volume:
+    external: true
