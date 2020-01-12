@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>pdns-master</Name>
+  <Repository>pschiffe/pdns-mysql:alpine</Repository>
+  <Registry>https://hub.docker.com/r/pschiffe/pdns-mysql/</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>PDNS Master</Overview>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://d36jcksde1wxzq.cloudfront.net/be7833db9bddb4494d2a7c3dd659199a.png</Icon>
+  <ExtraParams> --hostname ns1.example.com </ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1578813308</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>PDNS Master</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish/>
+  </Networking>
+  <Data/>
+  <Environment>
+    <Variable>
+      <Value>yes</Value>
+      <Name>PDNS_master</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>yes</Value>
+      <Name>PDNS_api</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>password</Value>
+      <Name>PDNS_api_key</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>yes</Value>
+      <Name>PDNS_webserver</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>0.0.0.0</Value>
+      <Name>DNS_webserver_address</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>password</Value>
+      <Name>PDNS_webserver_password</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>anonymous</Value>
+      <Name>PDNS_version_string</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>1500</Value>
+      <Name>PDNS_default_ttl</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>1200</Value>
+      <Name>PDNS_soa_minimum_ttl</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>ns1.example.com</Value>
+      <Name>PDNS_default_soa_name</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>hostmaster.example.com</Value>
+      <Name>PDNS_default_soa_mail</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>10.10.10.10</Value>
+      <Name>PDNS_allow_axfr_ips</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>10.10.10.10</Value>
+      <Name>PDNS_only_notify</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="PDNS_master" Target="PDNS_master" Default="yes" Mode="" Description="Container Variable: PDNS_master" Type="Variable" Display="always" Required="false" Mask="false">yes</Config>
+  <Config Name="PDNS_api" Target="PDNS_api" Default="yes" Mode="" Description="Container Variable: PDNS_api" Type="Variable" Display="always" Required="false" Mask="false">yes</Config>
+  <Config Name="PDNS_api_key" Target="PDNS_api_key" Default="" Mode="" Description="Container Variable: PDNS_api_key" Type="Variable" Display="always" Required="false" Mask="true">password</Config>
+  <Config Name="PDNS_webserver" Target="PDNS_webserver" Default="" Mode="" Description="Container Variable: PDNS_webserver" Type="Variable" Display="always" Required="false" Mask="false">yes</Config>
+  <Config Name="DNS_webserver_address" Target="DNS_webserver_address" Default="" Mode="" Description="Container Variable: DNS_webserver_address" Type="Variable" Display="always" Required="false" Mask="false">0.0.0.0</Config>
+  <Config Name="PDNS_webserver_password" Target="PDNS_webserver_password" Default="" Mode="" Description="Container Variable: PDNS_webserver_password" Type="Variable" Display="always" Required="false" Mask="false">password</Config>
+  <Config Name="PDNS_version_string" Target="PDNS_version_string" Default="" Mode="" Description="Container Variable: PDNS_version_string" Type="Variable" Display="always" Required="false" Mask="false">anonymous</Config>
+  <Config Name="PDNS_default_ttl" Target="PDNS_default_ttl" Default="" Mode="" Description="Container Variable: PDNS_default_ttl" Type="Variable" Display="always" Required="false" Mask="false">1500</Config>
+  <Config Name="PDNS_soa_minimum_ttl" Target="PDNS_soa_minimum_ttl" Default="" Mode="" Description="Container Variable: PDNS_soa_minimum_ttl" Type="Variable" Display="always" Required="false" Mask="false">1200</Config>
+  <Config Name="PDNS_default_soa_name" Target="PDNS_default_soa_name" Default="" Mode="" Description="Container Variable: PDNS_default_soa_name" Type="Variable" Display="always" Required="false" Mask="false">ns1.example.com</Config>
+  <Config Name="PDNS_default_soa_mail" Target="PDNS_default_soa_mail" Default="" Mode="" Description="Container Variable: PDNS_default_soa_mail" Type="Variable" Display="always" Required="false" Mask="false">hostmaster.example.com</Config>
+  <Config Name="PDNS_allow_axfr_ips" Target="PDNS_allow_axfr_ips" Default="" Mode="" Description="Container Variable: PDNS_allow_axfr_ips" Type="Variable" Display="always" Required="false" Mask="false">10.10.10.10</Config>
+  <Config Name="PDNS_only_notify" Target="PDNS_only_notify" Default="" Mode="" Description="Container Variable: PDNS_only_notify" Type="Variable" Display="always" Required="false" Mask="false">10.10.10.10</Config>
+</Container>
