@@ -1,0 +1,55 @@
+FROM centos:centos7.5.1804 
+
+MAINTAINER "brgalloway"
+
+RUN yum update -y && yum install -y \
+  python3-pip \
+  python-pip \
+  gcc \
+  python-devel \
+  gcc-c++ \
+  python3-devel \
+  systemd
+
+RUN pip3 install --upgrade pip
+
+RUN yum update -y && yum install -y \
+  python-devel \
+  gcc-c++ \
+  python3-devel \
+  yum-utils \
+  zeromq-devel
+
+RUN pip3 install \
+  msgpack-python \
+  pyYaml \
+  jinja2 \
+  markupsafe \
+  requests \
+  pyzmq \
+  pycrypto \
+  psutil \
+  futures \
+  tornado
+
+RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
+  rm -f /lib/systemd/system/multi-user.target.wants/*;\
+  rm -f /etc/systemd/system/*.wants/*;\
+  rm -f /lib/systemd/system/local-fs.target.wants/*; \
+  rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
+  rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
+  rm -f /lib/systemd/system/basic.target.wants/*;\
+  rm -f /lib/systemd/system/anaconda.target.wants/*;
+
+RUN mkdir -p {/etc/salt/pki,/var/cache/salt,/var/logs/salt,/etc/salt/master.d,/srv/salt}
+
+RUN pip3 install --no-cache-dir salt pycryptodomex CherryPy pyOpenSSL
+
+COPY salt-master.service /etc/systemd/system/salt-master.service
+COPY salt-api.service /etc/systemd/system/salt-api.service
+
+RUN systemctl enable salt-master && systemctl enable salt-api
+
+EXPOSE 4505 4506 8000
+
+CMD ["/usr/sbin/init"]
